@@ -84,9 +84,16 @@ const SearchStack = ({navigation}) => {
           component={SearchScreen} 
           options={{
             title: 'Search',
+            headerStyle: {
+              borderColor:'#2B475D',
+             
+              backgroundColor: '#2B475D',
+              height:80,
+            },
             headerTitleStyle: {
-              fontWeight: '400',
-              fontSize: 20
+              fontWeight: '600',
+              fontSize: 20,
+              color:'#fff'
             },
             headerLeft: () => (
               <View style={{marginLeft: 20}}>
@@ -110,10 +117,17 @@ const MeStack = ({navigation}) => {
           name="Me" 
           component={MeScreen} 
           options={{
-            title: 'ME',
+            headerStyle: {
+              borderColor:'#2B475D',
+             
+              backgroundColor: '#2B475D',
+              height:80,
+            },
+            title: '個人資料',
             headerTitleStyle: {
-              fontWeight: '400',
-              fontSize: 20
+              fontWeight: '600',
+              fontSize: 20,
+              color:'#fff',
             }, 
             headerLeft: () => (
               <View style={{marginLeft: 20}}>

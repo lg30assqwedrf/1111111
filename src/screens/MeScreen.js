@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
-import { Tile, ListItem, Icon } from 'react-native-elements';
+import { StyleSheet,ScrollView,View } from 'react-native';
+import { Tile, ListItem, Icon ,Text} from 'react-native-elements';
 
 import me from '../json/me.json';
 
 // Make a component
 const MeScreen = ({ navigation }) => {
     return (
+      <View style={style.allback}>
       <ScrollView>
         <Tile
           imageSrc={require('../../assets/user.png')}
@@ -14,7 +15,7 @@ const MeScreen = ({ navigation }) => {
         
           
         />
-      
+      <View style={style.back}>
             <ListItem
             title="性別"
             rightTitle={me.gender}
@@ -51,8 +52,14 @@ const MeScreen = ({ navigation }) => {
             rightTitle={me.location.state}
             hideChevron
           />
+          </View>
       </ScrollView>
+      </View>
     );
 }
 
+const style = StyleSheet.create({
+   
+  
+});
 export default MeScreen;
