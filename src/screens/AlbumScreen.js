@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Image,ScrollView} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image,ScrollView, Linking} from "react-native";
 
 import albumData from "../json/albums.json";
 import DetailScreen from "./DetailScreen";
@@ -10,13 +10,13 @@ const AlbumScreen = ({navigation }) => {
     <ScrollView>
     <View style={styles.back}>
         <View style={styles.top}>
-        <TouchableOpacity  onPress={() => alert('TAB!')}>
+        <TouchableOpacity  onPress={() => alert('ＴＡＢ！')}>
             <Text style={styles.cata}>健康類別</Text>
             </TouchableOpacity>
-            <TouchableOpacity  onPress={() => alert('TAB!')}>
+            <TouchableOpacity  onPress={() => alert('ＴＡＢ！')}>
             <Text style={styles.record}>健康紀錄</Text>
             </TouchableOpacity>
-            <TouchableOpacity  onPress={() => alert('TAB!')}>
+            <TouchableOpacity  onPress={() => alert('ＴＡＢ！')}>
             <Text style={styles.ask}>在線諮詢 </Text>
             </TouchableOpacity>
             </View>

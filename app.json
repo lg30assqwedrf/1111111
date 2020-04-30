@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "wk8proj",
-    "slug": "wk8proj",
+    "name": "myproj",
+    "slug": "myproj",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }

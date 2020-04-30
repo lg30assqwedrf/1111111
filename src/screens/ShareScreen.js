@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet,ScrollView,View,Image, TouchableOpacity } from 'react-native';
+import { StyleSheet,ScrollView,View,Image, TouchableOpacity , Linking} from 'react-native';
 import { ListItem,Text } from 'react-native-elements';
 
 // Make a component
@@ -14,7 +14,8 @@ const ShareScreen = ({ navigation }) => {
                         style={style.pic5}
                         source={{uri:'https://github.com/lg30assqwedrf/image-test/blob/master/240_F_41374323_Uufcg8fDqyqZvXtHCs6W4GVGAlulb9kv.jpg?raw=true'}}/>
                         </View>
-                        <TouchableOpacity>
+                        <TouchableOpacity 
+          >
                         <View>
                         <Image
                         style={style.pic1}
