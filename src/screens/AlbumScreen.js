@@ -1,16 +1,30 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Image,ScrollView } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image,ScrollView} from "react-native";
 
 import albumData from "../json/albums.json";
+import DetailScreen from "./DetailScreen";
 
-const AlbumScreen = ({ navigation }) => {
+const AlbumScreen = ({navigation }) => {
   return (
+      
     <ScrollView>
     <View style={styles.back}>
+        <View style={styles.top}>
+        <TouchableOpacity  onPress={() => alert('TAB!')}>
+            <Text style={styles.cata}>健康類別</Text>
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => alert('TAB!')}>
+            <Text style={styles.record}>健康紀錄</Text>
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => alert('TAB!')}>
+            <Text style={styles.ask}>在線諮詢 </Text>
+            </TouchableOpacity>
+            </View>
         <View style={styles.box1}>
         <TouchableOpacity 
-            onPress={() => navigation.navigate('Detail', album)}
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
           >
+              
             <View style={styles.picback1}>
 
                 <Image
@@ -24,27 +38,35 @@ const AlbumScreen = ({ navigation }) => {
 
             </View>
         </View>
-        <View style={styles.box11}>    
+        <View style={styles.box11}> 
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          >
             <View style={styles.picback11}>
+                
                 <Image
                     style={styles.pic11}
                     source={{uri:albumData.bookList[1].image}}/>
             </View>
-            
+            </TouchableOpacity>  
             <View>
                 <Text style={styles.title11}>{albumData.bookList[1].title}</Text>
                 
                 
             </View>
-            
+             
         </View>
        
         <View style={styles.box2}>
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          >
             <View style={styles.picback2}>
                 <Image
                     style={styles.pic2}
                     source={{uri:albumData.bookList[2].image}}/>
             </View>
+            </TouchableOpacity>  
             <View>
                 <Text style={styles.title2}>{albumData.bookList[2].title}</Text>
                 
@@ -53,11 +75,15 @@ const AlbumScreen = ({ navigation }) => {
             </View>
         </View>
         <View style={styles.box22}>
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          >
             <View style={styles.picback22}>
                 <Image
                     style={styles.pic22}
                     source={{uri:albumData.bookList[3].image}}/>
             </View>
+            </TouchableOpacity>  
             <View>
                 <Text style={styles.title22}>{albumData.bookList[3].title}</Text>
                
@@ -67,11 +93,15 @@ const AlbumScreen = ({ navigation }) => {
             
         </View>
         <View style={styles.box3}>
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          >
             <View style={styles.picback3}>
                 <Image
                     style={styles.pic3}
                     source={{uri:albumData.bookList[4].image}}/>
             </View>
+            </TouchableOpacity>  
             <View>
                 <Text style={styles.title3}>{albumData.bookList[4].title}</Text>
                 
@@ -80,11 +110,15 @@ const AlbumScreen = ({ navigation }) => {
             </View>
         </View>
         <View style={styles.box33}>
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          >
             <View style={styles.picback33}>
                 <Image
                     style={styles.pic33}
                     source={{uri:albumData.bookList[5].image}}/>
             </View>
+            </TouchableOpacity>  
             <View>
                 <Text style={styles.title33}>{albumData.bookList[5].title}</Text>
                
@@ -96,11 +130,15 @@ const AlbumScreen = ({ navigation }) => {
         
        
         <View style={styles.box4}>
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          >
             <View style={styles.picback4}>
                 <Image
                     style={styles.pic4}
                     source={{uri:albumData.bookList[6].image}}/>
             </View>
+            </TouchableOpacity>  
             <View>
                 <Text style={styles.title4}>{albumData.bookList[6].title}</Text>
                 
@@ -109,11 +147,15 @@ const AlbumScreen = ({ navigation }) => {
             </View>
         </View>
         <View style={styles.box44}>
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Detail', DetailScreen)}
+          >
             <View style={styles.picback44}>
                 <Image
                     style={styles.pic44}
                     source={{uri:albumData.bookList[7].image}}/>
             </View>
+            </TouchableOpacity>
             <View>
                 <Text style={styles.title44}>{albumData.bookList[7].title}</Text>
                
@@ -130,8 +172,35 @@ const AlbumScreen = ({ navigation }) => {
 }
 const styles = StyleSheet.create({
 
+    top:{
+        height:35,
+        width:400,
+        backgroundColor:'#fff',
+        shadowColor: "#000",
+        shadowOffset:{width:5,height:5},
+        shadowOpacity:0.2,
+        borderWidth:0.8,
+        borderColor:'#d1d1d1',
+        
+    },
+    cata:{
+        fontSize:18,
+        marginTop:7,
+        marginLeft:30
+    },
+    record:{
+        fontSize:18,
+        marginTop:-19,
+        marginLeft:150
+    },
+    ask:{
+        fontSize:18,
+        marginTop:-21,
+        marginLeft:270
+    },
+
 back:{
-    height:800,
+    height:850,
     backgroundColor:'#f8f8f8',
 },
 box1:{
