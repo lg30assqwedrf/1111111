@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { SplashScreen } from 'expo';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import {   
@@ -11,7 +12,7 @@ import {
 import Animated from 'react-native-reanimated';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { View, Image } from 'react-native';
+import { View, Image, AsyncStorage } from 'react-native';
 import { Tile } from 'react-native-elements';
 
 
@@ -25,6 +26,8 @@ import ShareScreen from './src/screens/ShareScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+
+const PERSISTENCE_KEY = "ALBUMS_NAVIGATION_STATE";
 
 
 
@@ -247,9 +250,37 @@ const CustomDrawerContent = ({ ...rest }) => {
   );
 }
 
-const App = () => {
-  return (
-    <NavigationContainer>
+
+export default function App() {
+  const [isLoadingComplete, setLoadingComplete] = React.useState(false);
+  const [initialNavigationState, setInitialNavigationState] = React.useState();
+  React.useEffect(() => {
+    async function loadResourcesAndDataAsync() {
+      try {
+        SplashScreen.preventAutoHide();
+        const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
+        const state = JSON.parse(savedStateString);
+        setInitialNavigationState(state);
+      } catch (e) {
+        // We might want to provide this error information to an error reporting service
+        console.warn(e);
+      } finally {
+        setLoadingComplete(true);
+        SplashScreen.hide();
+      }
+    }
+    loadResourcesAndDataAsync();
+  }, []);
+
+  if (!isLoadingComplete) {
+    return null;
+  } else {
+    return (
+    <NavigationContainer
+    initialState={initialNavigationState}
+    onStateChange={(state) =>
+      AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
+    }>
      <Drawer.Navigator 
     
     drawerStyle={{
@@ -347,6 +378,5 @@ const App = () => {
       </Drawer.Navigator>
     </NavigationContainer>
   );
-}
-
-export default App;
+        }
+      }
