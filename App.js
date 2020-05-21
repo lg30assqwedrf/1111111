@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { SplashScreen } from 'expo';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import {   
@@ -12,8 +11,9 @@ import {
 import Animated from 'react-native-reanimated';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { View, Image, AsyncStorage } from 'react-native';
+import { View, Image,AsyncStorage } from 'react-native';
 import { Tile } from 'react-native-elements';
+import { SplashScreen } from 'expo';
 
 
 import AlbumScreen from './src/screens/AlbumScreen';
@@ -28,8 +28,6 @@ const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const PERSISTENCE_KEY = "ALBUMS_NAVIGATION_STATE";
-
-
 
 const AlbumStack = ({navigation}) => {
   return (
@@ -250,8 +248,7 @@ const CustomDrawerContent = ({ ...rest }) => {
   );
 }
 
-
-export default function App() {
+const App = () => {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
   const [initialNavigationState, setInitialNavigationState] = React.useState();
   React.useEffect(() => {
@@ -275,12 +272,13 @@ export default function App() {
   if (!isLoadingComplete) {
     return null;
   } else {
-    return (
-    <NavigationContainer
+  return (
+    <NavigationContainer 
     initialState={initialNavigationState}
-    onStateChange={(state) =>
+    onStateChange={(state)=>
       AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
-    }>
+    }
+  >
      <Drawer.Navigator 
     
     drawerStyle={{
@@ -378,5 +376,6 @@ export default function App() {
       </Drawer.Navigator>
     </NavigationContainer>
   );
-        }
-      }
+}
+}
+export default App;

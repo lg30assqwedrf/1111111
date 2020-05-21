@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View, Image,ScrollView, Linking} from "react-native";
 
 import albumData from "../json/albums.json";
-import DetailScreen from "./DetailScreen";
+
 
 const AlbumScreen = ({navigation }) => {
   return (
@@ -93,15 +93,13 @@ const AlbumScreen = ({navigation }) => {
             
         </View>
         <View style={styles.box3}>
-        <TouchableOpacity 
-            onPress={() => navigation.navigate('Detail', DetailScreen)}
-          >
+      
             <View style={styles.picback3}>
                 <Image
                     style={styles.pic3}
                     source={{uri:albumData.bookList[4].image}}/>
             </View>
-            </TouchableOpacity>  
+           
             <View>
                 <Text style={styles.title3}>{albumData.bookList[4].title}</Text>
                 
